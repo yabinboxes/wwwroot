@@ -1,0 +1,40 @@
+name: Cloud Admin
+
+on: [push]
+
+jobs:
+  builds:
+
+    runs-on: ubuntu-latest
+
+    env:
+      L1_ORG_NAME: Org1
+      L2_ORG_NAME: Prjct1
+      CLOUD_REPO_LOCATION: yabinboxes/wwwroot
+      PLUGIN: deploy-web-app
+      ENV: [dev]
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Deploy Web App
+        run: |
+          RESPONSE=`curl -X GET -H "Accept: application/json" -H "Content-Type: application/json" \
+          http://localhost:8080/pulumi-endpoints/retrieve/enpoint1
+          echo "$TOKEN" 
+ #     - name: Deploy Web App
+ #       run: |
+ #         curl -X POST -H "Accept: application/json" -H "Content-Type: application/json" \
+ #         -d "{\"l1OrgName\": \"${{env.L1_ORG_NAME}}\", \"l2Prjct1Name\": \"${{env.L2_ORG_NAME}}\", \
+ #         \"cloudRepoLocation\": \"${{env.CLOUD_REPO_LOCATION}}\", \
+ #         \"plugin\": \"${{env.PLUGIN}}\", \"env\": \"${{env.ENV}}\", \
+ #         \"apiTokenGithub\": \"${{ secrets.API_TOKEN_GITHUB }}\" }" \
+ #         http://localhost:80/pluggin
+          
