@@ -26,7 +26,7 @@ jobs:
       - name: Deploy Web App
         run: |
           RESPONSE=`curl -X GET -H "Accept: application/json" -H "Content-Type: application/json" \
-          https://hub.dummyapis.com/employee?noofRecords=1&idStarts=10
+          https://hub.dummyapis.com/employee?noofRecords=1&idStarts=10`
           echo "$TOKEN" 
  #     - name: Deploy Web App
  #       run: |
