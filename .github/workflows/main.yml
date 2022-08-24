@@ -36,7 +36,7 @@ jobs:
           \"cloudRepoLocation\": \"${{env.CLOUD_REPO_LOCATION}}\", \
           \"plugin\": \"${{env.PLUGIN}}\", \"env\": \"${{env.ENV}}\", \
           \"apiTokenGithub\": \"${{ secrets.API_TOKEN_GITHUB }}\" } }" \
-          https://api.github.com/repos/gcp-deploy-cloud-run/dispatches
+          https://api.github.com/repos/yabinboxes/gcp-deploy-cloud-run/dispatches
           
  #     - name: Deploy Web App
  #       run: |
