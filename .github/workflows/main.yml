@@ -24,21 +24,23 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - name: Deploy Web App
-        run: |
-          RESPONSE=`curl -X GET -H "Accept: application/json" -H "Content-Type: application/json" \
-          https://hub.dummyapis.com/employee?noofRecords=1&idStarts=10`
-          echo "$RESPONSE"
-      - name: Call Dispatch
-        run: |
-          curl -X POST \
-          -H 'Authorization: Bearer ${{ secrets.API_TOKEN_GITHUB }}' \
-          -H "Accept: application/json" -H "Content-Type: application/json" \
-          -d "{ \"event_type\": \"build\", \"client_payload\": { \"l1OrgName\": \"${{env.L1_ORG_NAME}}\", \"l2PrjctName\": \"${{env.L2_PROJECT_NAME}}\", \
-          \"cloudRepoLocation\": \"${{env.CLOUD_REPO_LOCATION}}\", \
-          \"plugin\": \"${{env.PLUGIN}}\", \"env\": \"${{env.ENV}}\", \
-          \"apiTokenGithub\": \"${{ secrets.API_TOKEN_GITHUB }}\" } }" \
-          https://api.github.com/repos/yabinboxes/gcp-deploy-cloud-run/dispatches
+
+
+#      - name: Deploy Web App
+#        run: |
+#          RESPONSE=`curl -X GET -H "Accept: application/json" -H "Content-Type: application/json" \
+#          https://hub.dummyapis.com/employee?noofRecords=1&idStarts=10`
+#          echo "$RESPONSE"
+#      - name: Call Dispatch
+#        run: |
+#          curl -X POST \
+#          -H 'Authorization: Bearer ${{ secrets.API_TOKEN_GITHUB }}' \
+#          -H "Accept: application/json" -H "Content-Type: application/json" \
+#          -d "{ \"event_type\": \"build\", \"client_payload\": { \"l1OrgName\": \"${{env.L1_ORG_NAME}}\", \"l2PrjctName\": \"${{env.L2_PROJECT_NAME}}\", \
+#          \"cloudRepoLocation\": \"${{env.CLOUD_REPO_LOCATION}}\", \
+#          \"plugin\": \"${{env.PLUGIN}}\", \"env\": \"${{env.ENV}}\", \
+#          \"apiTokenGithub\": \"${{ secrets.API_TOKEN_GITHUB }}\" } }" \
+#          https://api.github.com/repos/yabinboxes/gcp-deploy-cloud-run/dispatches
           
           
  #     - name: Deploy Web App
