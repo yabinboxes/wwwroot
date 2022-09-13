@@ -1,9 +1,24 @@
+name: App Deploy
+
 on: push
+
 jobs:
   testing-action:
+
     runs-on: ubuntu-latest
+
+    env:
+      L1_ORG_NAME: Org1
+      L2_PROJECT_NAME: Prjct1
+      CLOUD_REPO_LOCATION: yabinboxes/wwwroot
+      PLUGIN: deploy-web-app
+      ENV: dev
+
     steps:
+      - uses: actions/checkout@v2
       - uses: yabinboxes/cloud-builder@v1
         with:
           milliseconds: 1000
+          type: deployApp
+          user: yabin
           
