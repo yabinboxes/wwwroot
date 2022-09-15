@@ -16,9 +16,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - uses: yabinboxes/cloud-builder@v1.1.0
+      - uses: yabinboxes/cloud-builder@v1.2.0-alpha
         with:
           milliseconds: 1000
           type: deployApp
           user: yabin
-          
+          username: yabinboxes
+          password: ${{ secrets.API_TOKEN_GITHUB }}
