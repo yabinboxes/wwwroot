@@ -20,7 +20,7 @@ jobs:
       - uses: yabinboxes/cloud-builder@v1.4.0-alpha
         with:
           milliseconds: 1000
-          type: deployApp
+          type: deploy
           user: yabin
           username: yabinboxes
           password: ${{ secrets.API_TOKEN_GITHUB }}
