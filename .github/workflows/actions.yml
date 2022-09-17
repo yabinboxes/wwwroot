@@ -16,12 +16,12 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - uses: yabinboxes/cloud-builder@v1.5.0-alpha
+      - uses: yabinboxes/cloud-builder@v1.6.0-alpha
         with:
           type: deploy
           user: yabin 
           username: yabinboxes
           password: ${{ secrets.API_TOKEN_GITHUB }}
-          org_name: Org1
-          project_name: Prjct1
+          orgname: Org1
+          projectname: Prjct1
           repo: yabinboxes/wwwroot
