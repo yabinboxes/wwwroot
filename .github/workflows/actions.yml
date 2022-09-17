@@ -7,20 +7,21 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    
     env:
       L1_ORG_NAME: Org1
       L2_PROJECT_NAME: Prjct1
       CLOUD_REPO_LOCATION: yabinboxes/wwwroot
-      PLUGIN: deploy-web-app
+      PLUGIN: deploy
       ENV: dev
 
     steps:
       - uses: actions/checkout@v2
-      - uses: yabinboxes/cloud-builder@v1.4.0-alpha
+      - uses: yabinboxes/cloud-builder@v1.5.0-alpha
         with:
-          milliseconds: 1000
           type: deploy
-          user: yabin
+          user: yabin 
           username: yabinboxes
           password: ${{ secrets.API_TOKEN_GITHUB }}
+          org_name: Org1
+          project_name: Prjct1
+          repo: yabinboxes/wwwroot
